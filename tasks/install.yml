@@ -37,6 +37,10 @@
     name: zfs-dkms
   when: "'stdout' in apt and 'The ZFS modules are not loaded' in apt.stdout"
 
+- name: Install utils
+  apt:
+    name: zfsutils-linux
+
 - name: Configure ZFS kernel parameters
   template:
     src: zfs.conf.j2
